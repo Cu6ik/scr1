@@ -27,7 +27,8 @@ SECTIONS {
     SIM_STOP = .;
     LONG(0x6F);
     LONG(-1);
-    . = 0x100;
+    . = 0xF00;
+    . = 0xB00;
     *crt_tcm.o(.text .text.*)
     *(.text.init)
     . = ALIGN(CL_SIZE);
