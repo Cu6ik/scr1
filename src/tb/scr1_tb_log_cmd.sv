@@ -3,13 +3,12 @@ module scr1_tb_log_cmd();
     logic [31:0] jal_target;
     always_comb begin
         jal_imm = {
-            scr1_top_tb_ahb.i_top.i_imem_ahb.imem_rdata[31],     //imm[20]
-            scr1_top_tb_ahb.i_top.i_imem_ahb.imem_rdata[19:12],  //imm[19:12]
-            scr1_top_tb_ahb.i_top.i_imem_ahb.imem_rdata[20],     //imm[11]
-            scr1_top_tb_ahb.i_top.i_imem_ahb.imem_rdata[30:21],  //imm[10:1]
+            scr1_top_tb_ahb.i_top.i_imem_ahb.imem_rdata[31],
+            scr1_top_tb_ahb.i_top.i_imem_ahb.imem_rdata[19:12],
+            scr1_top_tb_ahb.i_top.i_imem_ahb.imem_rdata[20],
+            scr1_top_tb_ahb.i_top.i_imem_ahb.imem_rdata[30:21],
             1'b0
         };
-
         jal_target =
             scr1_top_tb_ahb.i_top.i_core_top.i_pipe_top.curr_pc +
             $signed(jal_imm);
